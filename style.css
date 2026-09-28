@@ -188,3 +188,50 @@ footer a { color: var(--ink); text-decoration: none; border-bottom: 1px solid va
   .cover { height: auto; width: min(360px, 78%); }
   .copy { padding: 44px 7vw 56px; }
 }
+
+/* 404 page */
+main.nf {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 7vh 5vw 9vh;
+  text-align: center;
+}
+.nf .kicker { justify-content: center; }
+.nf .kicker::after { content: ""; width: 28px; height: 1px; background: var(--red); }
+
+.nf-map { display: block; width: min(760px, 100%); height: auto; margin: 28px 0 8px; overflow: visible; }
+.nf-map .ch {
+  fill: #fff; stroke: var(--ink); stroke-width: 1.5;
+  stroke-linejoin: round; vector-effect: non-scaling-stroke;
+}
+.nf-pin { animation: pin-drop .9s cubic-bezier(.2,.8,.2,1) both; }
+.nf-pin .pole { stroke: var(--ink); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.nf-pin .base { fill: var(--ink); }
+.nf-pin .flag { fill: var(--red); }
+.nf-pin text {
+  fill: #fff; font-family: var(--display); font-weight: 800;
+  font-size: 30px; letter-spacing: -.02em;
+}
+@keyframes pin-drop {
+  from { opacity: 0; transform: translateY(-40px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.nf-coords {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 6px;
+}
+.nf-commune {
+  font-family: var(--helvetica); font-weight: 400; font-size: 20px;
+  line-height: 1.4; letter-spacing: -.01em; color: var(--ink);
+  width: min(760px, 100%); margin: 14px 0 34px;
+  text-wrap: pretty;
+}
+.nf-town { font-weight: 700; color: var(--red); }
+.nf-home {
+  font-family: var(--helvetica); font-weight: 700; font-size: 20px;
+  color: var(--ink); text-decoration: none;
+  padding-bottom: 3px; border-bottom: 2px solid var(--red);
+  transition: color .2s;
+}
+.nf-home:hover { color: var(--red); }

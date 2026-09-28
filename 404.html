@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Switzerland Monthly</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Inter+Tight:wght@800&family=Bodoni+Moda:opsz,wght@6..96,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="wordmark" href="/" aria-label="Switzerland Monthly">switzerl<span class="an">an<span class="monthly" aria-hidden="true">Monthly</span></span>d</a>
+  <div>In print · 2027</div>
+</header>
+
+<main class="nf">
+  <p class="kicker">Page not found</p>
+
+  <svg class="nf-map" viewBox="-20 -110 1040 770" role="img" aria-label="Map of Switzerland with a red 404 flag">
+    <path class="ch" fill-rule="evenodd" d=""/>
+    <g class="nf-pin-at" transform="translate(-1000 -1000)">
+      <g class="nf-pin">
+        <line class="pole" x1="0" y1="0" x2="0" y2="-96"/>
+        <circle class="base" r="5"/>
+        <g class="nf-flag-side">
+          <rect class="flag" x="0" y="-96" width="92" height="54"/>
+          <text x="46" y="-58" text-anchor="middle">404</text>
+        </g>
+      </g>
+    </g>
+  </svg>
+
+  <p class="nf-coords"></p>
+  <p class="nf-commune" hidden>You've landed in <strong class="nf-town"></strong>,<br>but that's probably not what you were looking for…</p>
+
+  <a class="nf-home" href="/">Back to home page →</a>
+</main>
+
+<footer>
+  <span>© 2026 Switzerland Monthly</span>
+</footer>
+
+<script src="/ch-data.js"></script>
+<script>
+  (function () {
+    var CH = window.CH;
+    var svg = document.querySelector(".nf-map");
+    if (!CH) { svg.style.display = "none"; return; }
+
+    var shape = svg.querySelector(".ch");
+    var at = svg.querySelector(".nf-pin-at");
+    var side = svg.querySelector(".nf-flag-side");
+    shape.setAttribute("d", CH.path);
+    svg.setAttribute("viewBox", "-20 -110 " + (CH.w + 40) + " " + (CH.h + 130));
+
+    function inside(x, y) { return shape.isPointInFill(new DOMPoint(x, y)); }
+
+    // Keep the pin at least 25 units from the border.
+    for (var i = 0; i < 1000; i++) {
+      var x = Math.random() * CH.w, y = Math.random() * CH.h, m = 25;
+      if (!(inside(x, y) && inside(x - m, y) && inside(x + m, y) && inside(x, y - m) && inside(x, y + m))) continue;
+
+      at.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
+      if (x > CH.w - 100) side.setAttribute("transform", "translate(-92 0)");
+
+      var lon = CH.lon0 + x / CH.kx, lat = CH.lat1 - y / CH.sy;
+      document.querySelector(".nf-coords").textContent =
+        lat.toFixed(2) + "° N · " + lon.toFixed(2) + "° E";
+
+      var best = null, bestD = Infinity;
+      CH.communes.forEach(function (c) {
+        var d = (c[1] - x) * (c[1] - x) + (c[2] - y) * (c[2] - y);
+        if (d < bestD) { bestD = d; best = c[0]; }
+      });
+      if (best) {
+        document.querySelector(".nf-town").textContent = best;
+        document.querySelector(".nf-commune").hidden = false;
+      }
+      return;
+    }
+  })();
+</script>
+
+</body>
+</html>
