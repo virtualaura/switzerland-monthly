@@ -30,7 +30,38 @@ body {
   font-family: var(--sans); font-size: 11px; font-weight: 600;
   letter-spacing: .18em; text-transform: uppercase;
 }
-.bar .mark { display: block; height: 36px; width: auto; }
+
+/* Wordmark: "monthly" sits in the gap above "an", between the ascenders of l and d. */
+.wordmark {
+  --wm: 36px;
+  display: inline-block;
+  font-family: var(--display); font-weight: 800;
+  font-size: var(--wm); line-height: 1;
+  letter-spacing: -.035em; text-transform: none;
+  color: #fff; text-decoration: none;
+}
+.wordmark .an { position: relative; display: inline-block; }
+.wordmark .monthly {
+  position: absolute; left: 69%; transform: translateX(-50%);
+  bottom: calc(var(--wm) * .69);
+  font-family: "Bodoni Moda", Didot, "Bodoni 72", serif; font-weight: 500;
+  font-size: calc(var(--wm) * .2); line-height: 1;
+  letter-spacing: .06em; text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* One-string wordmark: heavy sans "switzerland", then a lighter serif "MONTHLY". */
+.wordmark-inline {
+  display: inline-flex; align-items: baseline; gap: .3em;
+  font-family: var(--display); font-weight: 800;
+  font-size: 30px; line-height: 1;
+  letter-spacing: -.035em; text-transform: none;
+  color: #fff; text-decoration: none;
+}
+.wordmark-inline .monthly {
+  font-family: "Bodoni Moda", Didot, "Bodoni 72", serif; font-weight: 500;
+  font-size: .62em; letter-spacing: .08em; text-transform: uppercase;
+}
 
 /* Layout */
 main {
