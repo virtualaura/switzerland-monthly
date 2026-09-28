@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Switzerland Monthly — Coming soon</title>
+<meta name="description" content="A new monthly print magazine for living well in Switzerland. Coming soon.">
+<meta property="og:title" content="Switzerland Monthly — Coming soon">
+<meta property="og:description" content="A new monthly print magazine for living well in Switzerland.">
+<meta property="og:image" content="cover-red2.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Inter+Tight:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar">
+  <img class="mark" src="swizterland-monthly-name.png" alt="Switzerland Monthly">
+  <div>In print · 2027</div>
+</header>
+
+<main>
+  <section class="stage" aria-label="Cover preview">
+    <div class="cover">
+      <img src="Burger-cover-11-27-23-red2.jpg" alt="Switzerland Monthly cover preview: Where's the Beef? The best burgers in Switzerland">
+      <div class="blur" style="--x:87.5%; --y:13%;   --w:7%;  --h:4%"></div>
+      <div class="blur" style="--x:14%;   --y:42.5%; --w:38%; --h:5%"></div>
+      <div class="blur" style="--x:14%;   --y:51%;   --w:38%; --h:5%"></div>
+      <div class="blur" style="--x:14%;   --y:58%;   --w:38%; --h:5.5%"></div>
+      <div class="blur" style="--x:23%;   --y:40.5%; --w:22%; --h:3.8%"></div>
+      <div class="blur" style="--x:30.5%; --y:48.8%; --w:8.5%; --h:3.6%"></div>
+      <div class="blur" style="--x:76%;   --y:56.5%; --w:13%; --h:3.2%"></div>
+      <div class="blur" style="--x:76%;   --y:59.2%; --w:12.5%; --h:3.2%"></div>
+      <div class="blur" style="--x:55%;   --y:61.8%; --w:14.5%; --h:3.2%"></div>
+    </div>
+  </section>
+
+  <section class="copy">
+    <p class="kicker">Launching in 2027</p>
+    <h1>A magazine for living well in <em>Switzerland</em></h1>
+    <p class="lede">Monthly, in print, and made to be kept. Long reads, sharp guides, and the people, places, and things shaping the country. From Geneva to St. Gallen, from burgers to biotech. From our keyboards to your hands.</p>
+    <p class="lede">We're planning the first issues already. Leave your email to follow our progress and join our community.</p>
+
+    <div class="rule"></div>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+      <button type="submit">Notify me</button>
+    </form>
+    <!-- p class="fine">One email when we launch. Nothing else.</p> -->
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 Switzerland Monthly</span>
+  <a class="forward" href="#">Forward to a friend</a>
+</footer>
+
+<script>
+  document.querySelector(".forward").href =
+    "mailto:?subject=" + encodeURIComponent("Switzerland Monthly is coming") +
+    "&body=" + encodeURIComponent("Thought you'd like this: " + location.href);
+</script>
+
+</body>
+</html>
