@@ -176,6 +176,29 @@ button {
   transition: background .2s;
 }
 button:hover { background: var(--red); }
+
+/* Brevo markup: its wrapper divs must not break the one-row form above. */
+#sib-form { flex-wrap: wrap; }
+#sib-form .sib-input,
+#sib-form .form__entry,
+#sib-form .form__label-row,
+#sib-form .entry__field { display: contents; }
+#sib-form .sib-form-block:not(.sib-input) { display: flex; }
+#sib-form .input--hidden { display: none; }
+#sib-form .progress-indicator__icon { width: 14px; height: 14px; margin-right: 8px; fill: currentColor; animation: sib-spin 1s linear infinite; }
+#sib-form .sib-hide-loader-icon { display: none; }
+#sib-form button { display: flex; align-items: center; }
+.entry__error {
+  order: 3; flex-basis: 100%;
+  padding: 10px 18px; border-top: 1px solid var(--rule);
+  font-size: 13px; color: var(--red);
+}
+.entry__error:empty { display: none; }
+.sib-form-message-panel { display: none; max-width: 460px; margin-bottom: 12px; font-size: 15px; }
+.sib-form-message-panel--active { display: block; }
+#error-message { color: var(--red); }
+#success-message { color: var(--ink); font-weight: 700; }
+@keyframes sib-spin { to { transform: rotate(360deg); } }
 .fine { margin-top: 12px; font-size: 13px; color: var(--muted); }
 .fine a { color: inherit; }
 

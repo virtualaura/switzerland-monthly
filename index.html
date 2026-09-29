@@ -39,15 +39,49 @@
   <section class="copy">
     <p class="kicker">Launching in 2027</p>
     <h1>A magazine for living well in <em>Switzerland</em></h1>
-    <p class="lede">Monthly, in print, and made to be kept. Long reads, sharp guides, and the people, places, and things shaping the country. From Geneva to St. Gallen, from burgers to biotech, from our keyboards to your hands.</p>
+    <p class="lede">Monthly, in print, and made to be kept. Long reads, sharp guides, and the people, places, and things shaping this exceptional country. From Geneva to St. Gallen, from burgers to biotech, from our keyboards to your hands.</p>
     <p class="lede">We're planning the first issues already. Leave your email to follow our progress and join our community.</p>
 
     <div class="rule"></div>
 
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
-      <button type="submit">Notify me</button>
-    </form>
+    <div class="sib-form">
+      <div id="sib-form-container" class="sib-form-container">
+        <div id="error-message" class="sib-form-message-panel" role="alert">
+          <div class="sib-form-message-panel__text">
+            <span class="sib-form-message-panel__inner-text">Something went wrong. Please try again.</span>
+          </div>
+        </div>
+        <div id="success-message" class="sib-form-message-panel" role="status">
+          <div class="sib-form-message-panel__text">
+            <span class="sib-form-message-panel__inner-text">Thank you. We'll be in touch.</span>
+          </div>
+        </div>
+        <div id="sib-container">
+          <form id="sib-form" method="POST" action="https://68986daa.sibforms.com/serve/MUIFAPEC0tM216l9oalvAzBoi0UQc2-HEHoF_eLGa7tL9YklcH7EJ9Z1_JTJKyc-lh-XE0aSeX8wyVLEYnzG9XG8VEbChGK3hAk1NNku2tAsdLDVpXjWXWl2XSshGzn87U5a6DgEmXPZZ2B-f8_uydcjwzZ-Bk5mZ2k7ZBKvXLv_Hb-vV2blI-Fec_nOmjC89abNJNw7_LN55qEpAw==" data-type="subscription">
+            <div class="sib-input sib-form-block">
+              <div class="form__entry entry_block">
+                <div class="form__label-row">
+                  <div class="entry__field">
+                    <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" placeholder="Your email address" aria-label="Email address" data-required="true" required>
+                  </div>
+                </div>
+                <label class="entry__error entry__error--primary" for="EMAIL"></label>
+              </div>
+            </div>
+            <div class="sib-form-block">
+              <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" aria-hidden="true">
+                  <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"/>
+                </svg>
+                Notify me
+              </button>
+            </div>
+            <input type="text" name="email_address_check" value="" class="input--hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="locale" value="en">
+          </form>
+        </div>
+      </div>
+    </div>
     <!-- p class="fine">One email when we launch. Nothing else.</p> -->
   </section>
 </main>
@@ -62,6 +96,27 @@
     "mailto:?subject=" + encodeURIComponent("Switzerland Monthly is coming") +
     "&body=" + encodeURIComponent("Thought you'd like this: " + location.href);
 </script>
+
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+  window.LOCALE = 'en';
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Please check the email address and try again.";
+  window.REQUIRED_ERROR_MESSAGE = "Please enter an email address.";
+  window.GENERIC_INVALID_MESSAGE = "Please check the email address and try again.";
+  window.INVALID_NUMBER = "Please check the email address and try again.";
+  window.INVALID_DATE = "Please enter a valid date";
+  window.REQUIRED_MULTISELECT_MESSAGE = 'Please select at least 1 option';
+  window.translation = {
+    common: {
+      selectedList: '{quantity} list selected',
+      selectedLists: '{quantity} lists selected',
+      selectedOption: '{quantity} selected',
+      selectedOptions: '{quantity} selected',
+    }
+  };
+  var AUTOHIDE = Boolean(0);
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 
 </body>
 </html>
